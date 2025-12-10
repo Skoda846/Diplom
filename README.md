@@ -40,3 +40,11 @@
 Запуск UI-тестов: pytest -m "ui"
 
 Запуск API-тестов: pytest -m "api"
+
+Финальный проект:
+
+https://qa-inginer.yonote.ru/doc/kursovaya-rabota-3-kurs-HuV7NdDHIk
+
+
+
+Доступ; Почта; duos6hdxu@giodaingan.com     Пароль;  RgRK1aT6
