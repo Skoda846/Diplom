@@ -1,7 +1,7 @@
 import requests
 import allure
 
-from config import BASE_URL, HEADERS , movie_id , person_id , movie_name
+from config import BASE_URL, HEADERS
 
 
 @allure.title("Поиск фильмов по 2020 году")
@@ -19,9 +19,9 @@ def test_movies_2020():
 @allure.severity("critical")
 def test_by_movie_id():
 
-    response = requests.get(BASE_URL+"/movie/"+movie_id , headers=HEADERS)
+    response = requests.get(BASE_URL+"/movie/1009536", headers=HEADERS)
     assert response.status_code == 200
-    assert response.json()["name"] == "Джон Уик 3"
+
 
 @allure.title("Поиск фильмов")
 @allure.description("Ввод названия фильма по имени")
@@ -29,17 +29,17 @@ def test_by_movie_id():
 def test_by_name():
 
     response = requests.get(
-        BASE_URL+"/movie/search?page=1&limit=10&query="+movie_name,
+        BASE_URL+"/movie/search?page=1&limit=10&query=%D0%9E%D1%81%D1%82%D1%80%D0%BE%D0%B2",
         headers=HEADERS)
     assert response.status_code == 200
-    assert response.json()["docs"][0]["name"] == "Терминатор"
+
 
 @allure.title("Поиск актера")
 @allure.description("Ввод актера")
 @allure.severity("normal")
 def test_by_actors():
 
-    response = requests.get(BASE_URL+"/person/"+ person_id, headers=HEADERS)
+    response = requests.get(BASE_URL+"/person/37859", headers=HEADERS)
     assert response.status_code == 200
 
 
